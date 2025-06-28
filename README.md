@@ -1,6 +1,5 @@
 # Login_Passwordless_SIM
-Progetto per l'esame di Sicurezza dell'Informazione sul login passwordless
-Autenticazione passwordless con WebAuthn (Touch ID) usando Node.js, Express e SQLite.
+Progetto per l'esame di Sicurezza dell'Informazione sul login passwordless: autenticazione passwordless con WebAuthn (Touch ID) usando Node.js, Express e SQLite.
 
 ## 🔐 Funzionalità
 
