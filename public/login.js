@@ -1,5 +1,6 @@
 const $ = id => document.getElementById(id);
-const output = (data) => $("output").textContent = JSON.stringify(data, null, 2);
+//const output = (data) => $("output").textContent = JSON.stringify(data, null, 2);
+import { startAuthentication } from '@simplewebauthn/browser';
 
 const bufferDecode = (v) => {
   v = v.replace(/-/g, '+').replace(/_/g, '/');
@@ -20,7 +21,7 @@ document.getElementById('loginBtn').addEventListener('click', async () => {
     const text1 = await res1.text(); 
   
     if(!res1.ok) {
-      output({ error: `Server risponde ${res1.status}`, details: text1 });
+      console.log('Server risponde' + `${res1.status}`);
       return;
     }
   
@@ -34,7 +35,7 @@ document.getElementById('loginBtn').addEventListener('click', async () => {
     opts.challenge = bufferDecode(opts.challenge);    
     opts.allowCredentials = opts.allowCredentials.map(c => ({ ...c, id: bufferDecode(c.id) }));
 
-    const assertion = await navigator.credentials.get({ publicKey: opts });
+    const assertion = await startAuthentication({opts})
    
     //mando al server per la verifica
     const res2 = await fetch('/webauthn/verify-authentication', {
@@ -45,7 +46,7 @@ document.getElementById('loginBtn').addEventListener('click', async () => {
 
     const text2 = await res2.text(); 
     if(!res2.ok) {
-      output({ error: `Server risponde ${res2.status}`, details: text2 });
+      console.log('Server risponde' + `${res2.status}`);
       return;
     }
     
@@ -56,7 +57,6 @@ document.getElementById('loginBtn').addEventListener('click', async () => {
     }
   }catch(err) {
     console.error(err);
-    output({ error: err.message });
   }
   });
 
