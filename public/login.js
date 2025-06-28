@@ -1,4 +1,5 @@
 const $ = id => document.getElementById(id);
+const output = (data) => $("output").textContent = JSON.stringify(data, null, 2);
 
 const bufferDecode = (v) => {
   v = v.replace(/-/g, '+').replace(/_/g, '/');
