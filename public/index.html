@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registrazione WebAuthn</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #667eea, #764ba2);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 400px;
+      margin: 30vh auto;
+      background: #ffffff1a;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(8px);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    input[type="text"] {
+      width: 94.4%;
+      padding: 0.7rem;
+      border: none;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    button {
+      width: 100%;
+      padding: 0.7rem;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: #38b2ac;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    button:hover {
+      background-color: #319795;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Registrati</h2>
+    <input type="text" id="username" placeholder="Inserisci username" />
+    <input type="text" id="displayName" placeholder="Inserisci nome completo" />
+    <button id="registerBtn">Registra con WebAuthn</button>
+    <p>Sei già registrato?</p>
+    <button id="goToLogin">Vai al login!</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

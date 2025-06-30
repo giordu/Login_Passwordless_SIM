@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WebAuthn Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #667eea, #764ba2);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .container {
+      background: #ffffff1a;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      padding: 2rem;
+      width: 100%;
+      max-width: 500px;
+      margin: 10vh auto;
+      backdrop-filter: blur(8px);
+    }
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    input {
+      width: 100%;
+      padding: 0.7rem;
+      border: none;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #38b2ac;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    button:hover {
+      background: #319795;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Accedi con WebAuthn</h1>
+    <input type="text" id="username" placeholder="Inserisci username"/>
+    <button id="loginBtn">Login con Touch ID</button>
+    <p>Non sei ancora registrato?</p>
+    <button id="regBtn">Registrati qui!</button>
+  </div>
+  <script src="login.js"></script>
+</body>
+</html>

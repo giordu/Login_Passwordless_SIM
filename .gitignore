@@ -1,0 +1,4 @@
+node_modules/
+webauthn.db
+.DS_Store
+

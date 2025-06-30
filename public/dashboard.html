@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #667eea, #764ba2);
+      color: #fff;
+    }
+    header {
+      background:linear-gradient(to right, #667eea, #764ba2);
+      padding: 1rem;
+      text-align: center;
+      color: white;
+      font-size: 1.5rem;
+    }
+    .dashboard {
+      max-width: 800px;
+      margin: 22vh auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .info {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: black
+    }
+    button {
+      padding: 0.7rem 1.5rem;
+      font-size: 1rem;
+      background-color: #e53e3e;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #c53030;
+    }
+  </style>
+</head>
+<body>
+  <header>Benvenuto nella Dashboard</header>
+  <div class="dashboard">
+    <div class="info">
+      Accesso effettuato con successo!<br />
+    </div>
+    <button id="logoutBtn">Esci</button>
+    <script src="logout.js"></script>
+  </div>
+</body>
+</html>

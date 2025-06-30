@@ -1,0 +1,25 @@
+
+const express = require('express');
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
+const regRoutes = require('./routes/webauthn');
+const authRoutes = require('./routes/webauthn-login');
+const app = express();
+app.use(helmet());
+app.use(rateLimit({ windowMs: 900000, max: 200 }));
+app.use(cors());
+app.use(cookieParser());
+app.use(express.json());
+app.use(session({ secret: 'replace-me', resave: false, saveUninitialized: false, cookie: { httpOnly: true, secure: false } }));
+app.use('/webauthn', regRoutes);
+app.use('/webauthn', authRoutes);
+app.use(express.static(path.join(__dirname, 'public')));
+app.get('/dashboard', (req, res) => { if (!req.session.loggedIn) return res.redirect('/login.html'); res.sendFile(path.join(__dirname, 'public', 'dashboard.html')); });
+const server = http.createServer(app);
+server.listen(3000, () => console.log('Listening on http://localhost:3000'));
